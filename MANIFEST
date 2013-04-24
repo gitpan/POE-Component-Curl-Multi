@@ -10,7 +10,8 @@ examples/synopsis.pl
 lib/POE/Component/Curl/Multi.pm
 t/00-compile.t
 t/01_windup.t
-t/02_request.t
+t/02_reqget.t
+t/02_reqhead.t
 t/02_ssl.t
 t/03_badreq.t
 t/03_error.t

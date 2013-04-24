@@ -1,6 +1,6 @@
 package POE::Component::Curl::Multi;
 {
-  $POE::Component::Curl::Multi::VERSION = '0.02';
+  $POE::Component::Curl::Multi::VERSION = '0.04';
 }
 
 #ABSTRACT: a fast HTTP POE component
@@ -291,7 +291,7 @@ sub _perform {
                                ${$state->{header}}))[-1];
          my $response = HTTP::Response->parse($last_header .
                                               "\n\n" .
-                                              ${ $state->{body} }
+                                              ( ${ $state->{body} } || '' )
          );
          $req->uri( $easy->getinfo(CURLINFO_EFFECTIVE_URL) );
          $response->request($req);
@@ -358,7 +358,7 @@ POE::Component::Curl::Multi - a fast HTTP POE component
 
 =head1 VERSION
 
-version 0.02
+version 0.04
 
 =head1 SYNOPSIS
 

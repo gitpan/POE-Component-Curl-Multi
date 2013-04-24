@@ -2,7 +2,7 @@ NAME
     POE::Component::Curl::Multi - a fast HTTP POE component
 
 VERSION
-    version 0.02
+    version 0.04
 
 SYNOPSIS
       use strict;

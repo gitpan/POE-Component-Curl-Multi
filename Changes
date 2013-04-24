@@ -1,6 +1,25 @@
 ==================================================
-Changes from 2008-04-02 00:00:00 +0000 to present.
+Changes from 2008-04-25 00:00:00 +0000 to present.
 ==================================================
+
+-----------------------------------------
+version 0.04 at 2013-04-24 20:39:47 +0000
+-----------------------------------------
+
+  Change: 44f124add5f05cb061bac561ca32e8c39a638eee
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date : 2013-04-24 21:39:47 +0000
+
+    Bumpity version 
+
+  Change: 262df7902e47c77698b7c1eb5a7240d642bad95f
+  Author: Chris 'BinGOs' Williams <chris@bingosnet.co.uk>
+  Date : 2013-04-24 21:36:29 +0000
+
+    Resolve spurious undefined errors
+
+    HEAD requests have no body so check for that situation. Mentioned by
+    Getty. 
 
 -----------------------------------------
 version 0.02 at 2013-04-01 14:24:45 +0000
