@@ -2,7 +2,7 @@ NAME
     POE::Component::Curl::Multi - a fast HTTP POE component
 
 VERSION
-    version 0.04
+    version 0.06
 
 SYNOPSIS
       use strict;
@@ -128,6 +128,8 @@ ACCEPTED EVENTS
         'response',                 # my state to receive responses
         GET('http://poe.perl.org'), # a simple HTTP request
         'unique id',                # a tag to identify the request
+        'progress',                 # an event to indicate progress
+        'http://1.2.3.4:80/'        # proxy to use for this request
       );
 
     This invocation is compatible with POE::Component::Client::HTTP.
@@ -145,6 +147,10 @@ ACCEPTED EVENTS
 
     "tag"
       A tag to identify the request.
+
+    "progress"
+      An optional handler, if specified the component will provide progress
+      metrics (see sample handler below).
 
     "proxy"
       Specify a proxy to use. This overrides the "proxy" set with "spawn",
@@ -193,6 +199,28 @@ SENT EVENTS
     Please see the HTTP::Request and HTTP::Response manpages for more
     information.
 
+  progress handler
+    The example progress handler shows how to calculate a percentage of
+    download completion.
+
+      sub progress_handler {
+        my $gen_args  = $_[ARG0];    # args passed to all calls
+        my $call_args = $_[ARG1];    # args specific to the call
+
+        my $req = $gen_args->[0];    # HTTP::Request object being serviced
+        my $tag = $gen_args->[1];    # Request ID tag from.
+        my $got = $call_args->[0];   # Number of bytes retrieved so far.
+        my $tot = $call_args->[1];   # Total bytes to be retrieved.
+
+        my $percent = $got / $tot * 100;
+
+        printf(
+          "-- %.0f%% [%d/%d]: %s\n", $percent, $got, $tot, $req->uri()
+        );
+
+        return;
+      }
+
 STREAMING
     This component does not (yet) support POE::Component::Client::HTTP's
     streaming options.
@@ -233,7 +261,7 @@ AUTHOR
     Chris Williams
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Chris Williams, Michael S.
+    This software is copyright (c) 2014 by Chris Williams, Michael S.
     Fischer, Rocco Caputo, Rob Bloodgood and Martijn van Beers.
 
     This is free software; you can redistribute it and/or modify it under

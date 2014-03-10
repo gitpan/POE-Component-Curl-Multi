@@ -4,12 +4,12 @@
       "Chris Williams"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 5.013, CPAN::Meta::Converter version 2.140630",
    "license" : [
       "perl_5"
    ],
    "meta-spec" : {
-      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "url" : "https://metacpan.org/pod/CPAN::Meta::Spec",
       "version" : "2"
    },
    "name" : "POE-Component-Curl-Multi",
@@ -41,6 +41,9 @@
       },
       "test" : {
          "requires" : {
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Test::More" : "0.96"
          }
       }
@@ -54,6 +57,6 @@
          "web" : "https://github.com/bingos/poe-component-curl-multi"
       }
    },
-   "version" : "0.04"
+   "version" : "0.06"
 }
 
