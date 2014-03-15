@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
     "HTTP::Status" => "5.811",
     "POE" => "1.312",
     "POE::Component::Server::TCP" => 0,
+    "POE::Filter::HTTPD" => 0,
     "URI" => "1.37",
     "WWW::Curl" => "4.15"
   },
@@ -37,7 +38,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.08",
+  "VERSION" => "0.10",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -55,6 +56,7 @@ my %FallbackPrereqs = (
   "IPC::Open3" => 0,
   "POE" => "1.312",
   "POE::Component::Server::TCP" => 0,
+  "POE::Filter::HTTPD" => 0,
   "Test::More" => "0.96",
   "URI" => "1.37",
   "WWW::Curl" => "4.15"

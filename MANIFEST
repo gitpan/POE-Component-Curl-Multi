@@ -27,5 +27,6 @@ t/10_postback.t
 t/11_pending.t
 t/12_proxy.t
 t/13_postcont.t
+t/14_postexpect.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t

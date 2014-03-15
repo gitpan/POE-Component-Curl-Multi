@@ -24,9 +24,10 @@ requires:
   HTTP::Status: '5.811'
   POE: '1.312'
   POE::Component::Server::TCP: '0'
+  POE::Filter::HTTPD: '0'
   URI: '1.37'
   WWW::Curl: '4.15'
 resources:
   homepage: https://github.com/bingos/poe-component-curl-multi
   repository: https://github.com/bingos/poe-component-curl-multi.git
-version: '0.08'
+version: '0.10'
